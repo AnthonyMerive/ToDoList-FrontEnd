@@ -2,6 +2,7 @@ import React from 'react'
 import shortid from 'shortid'
 
 export default function App() {
+
     const [tarea, setTarea] = React.useState('')
     const [tareas, setTareas] = React.useState([])
     const [modoEdicion, setModoEdicion] = React.useState(false)
@@ -51,6 +52,7 @@ export default function App() {
     }
 
     return (
+        
         <div className="container mt-5">
             <h1 className="text-center">To-Do List</h1>
             <hr />
@@ -64,6 +66,7 @@ export default function App() {
                             modoEdicion ? 'Editar Tarea' : 'Agregar Tarea'
                         }
                     </h4>
+
                     <form onSubmit={modoEdicion ? editarTarea : agregarTarea}>
 
                         <input
@@ -89,9 +92,9 @@ export default function App() {
                     </form>
                 </div>
 
-
                 <div className="col-6">
-                    <h4 className="text-center">Por Hacer..</h4>
+
+                    <h4 className="text-center">{modoEdicion ? 'Editando lista...' : 'Por Hacer'}</h4>
                     <ul className="list-group">
                         {
                             tareas.length === 0 ? (
