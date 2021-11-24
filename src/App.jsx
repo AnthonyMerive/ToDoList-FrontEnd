@@ -1,27 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import shortid from 'shortid'
+import { getAsincronico, post } from './actions/ToDoAction'
 
 export default function App() {
 
+    const task = useSelector(store => store.tareas.tareas)
     const [tarea, setTarea] = React.useState('')
     const [tareas, setTareas] = React.useState([])
     const [modoEdicion, setModoEdicion] = React.useState(false)
     const [id, setId] = React.useState('')
     const [error, setError] = React.useState(null)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAsincronico())
+    }, [dispatch])
 
     const handleAgregarTarea = e => {
         e.preventDefault()
         if (!tarea.trim()) {
-            console.log('Campo vacio')
             setError('El campo no puede estar Vacío')
             return
         }
-        setTareas([
-            ...tareas,
-            { tarea, id: shortid.generate() }
-        ])
         setTarea('')
         setError(null)
+        dispatch(post(tarea))
+        dispatch(getAsincronico())
     }
 
     const handleEliminarTarea = id => {
@@ -50,6 +55,7 @@ export default function App() {
         setId('')
         setError(null)
     }
+
 
     return (
 
@@ -97,14 +103,14 @@ export default function App() {
                     <h4 className="text-center">{modoEdicion ? 'Editando lista...' : 'Por Hacer'}</h4>
                     <ul className="list-group">
                         {
-                            tareas.length === 0 ? (
+                            task === undefined ? (
                                 <li className="list-group-item text-center">- Sin Tareas -</li>
                             ) : (
-                                tareas.map(item => (
+                                task.map(item => (
                                     <li className="list-group-item" key={item.id}>
                                         <div className="row">
                                             <div className="col-8">
-                                                <span className="lead">{item.tarea}</span>
+                                                <span className="lead">{item.name}</span>
                                             </div>
 
                                             {
