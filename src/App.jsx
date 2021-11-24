@@ -99,21 +99,26 @@ export default function App() {
                             ) : (
                                 tareas.map(item => (
                                     <li className="list-group-item" key={item.id}>
-                                       
-                                            <div className="d-flex align-items-start">
+                                        <div className="row">
+                                            <div className="col-8">
                                                 <span className="lead">{item.tarea}</span>
                                             </div>
-                                            <div className="d-flex align-items-end">
-                                                <button
-                                                    className="btn btn-sm btn-danger float-right mx-2"
-                                                    onClick={() => eliminarTarea(item.id)}
-                                                >Eliminar</button>
-                                                <button
-                                                    className="btn btn-sm btn-warning float-right"
-                                                    onClick={() => editar(item)}
-                                                >Editar</button>
-                                            </div>
-                                       
+
+                                            {
+                                                !modoEdicion &&
+                                                <div className="col-4">
+                                                    <button
+                                                        className="btn btn-sm btn-danger float-right mx-2"
+                                                        onClick={() => eliminarTarea(item.id)}
+                                                    >Eliminar</button>
+                                                    <button
+                                                        className="btn btn-sm btn-warning float-right"
+                                                        onClick={() => editar(item)}
+                                                    >Editar</button>
+                                                </div>
+                                            }
+                                        </div>
+
                                     </li>
                                 ))
                             )
