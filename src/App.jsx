@@ -9,7 +9,7 @@ export default function App() {
     const [id, setId] = React.useState('')
     const [error, setError] = React.useState(null)
 
-    const agregarTarea = e => {
+    const handleAgregarTarea = e => {
         e.preventDefault()
         if (!tarea.trim()) {
             console.log('Campo vacio')
@@ -24,18 +24,18 @@ export default function App() {
         setError(null)
     }
 
-    const eliminarTarea = id => {
+    const handleEliminarTarea = id => {
         const arrayFiltrado = tareas.filter(item => item.id !== id)
         setTareas(arrayFiltrado)
     }
 
-    const editar = item => {
+    const handleEdicion = item => {
         setModoEdicion(true)
         setTarea(item.tarea)
         setId(item.id)
     }
 
-    const editarTarea = e => {
+    const handleEditarTarea = e => {
         e.preventDefault()
         if (!tarea.trim()) {
             console.log('Campo vacio')
@@ -52,7 +52,7 @@ export default function App() {
     }
 
     return (
-        
+
         <div className="container mt-5">
             <h1 className="text-center">To-Do List</h1>
             <hr />
@@ -67,7 +67,7 @@ export default function App() {
                         }
                     </h4>
 
-                    <form onSubmit={modoEdicion ? editarTarea : agregarTarea}>
+                    <form onSubmit={modoEdicion ? handleEditarTarea: handleAgregarTarea}>
 
                         <input
                             type="text"
@@ -112,11 +112,11 @@ export default function App() {
                                                 <div className="col-4">
                                                     <button
                                                         className="btn btn-sm btn-danger float-right mx-2"
-                                                        onClick={() => eliminarTarea(item.id)}
+                                                        onClick={() => handleEliminarTarea(item.id)}
                                                     >Eliminar</button>
                                                     <button
                                                         className="btn btn-sm btn-warning float-right"
-                                                        onClick={() => editar(item)}
+                                                        onClick={() => handleEdicion(item)}
                                                     >Editar</button>
                                                 </div>
                                             }
