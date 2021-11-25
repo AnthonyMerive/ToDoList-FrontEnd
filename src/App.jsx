@@ -20,11 +20,12 @@ export default function App() {
     return (
 
         <div className="container mt-5">
+            <hr />
             <h1 className="text-center">To-Do List</h1>
             <hr />
             <div className="row">
 
-                <div className="col-6">
+                <div className="col-md-6">
                     <AgregarTarea 
                     modoEdicion={modoEdicion} 
                     setModoEdicion={setModoEdicion}
@@ -38,7 +39,7 @@ export default function App() {
                     />
                 </div>
 
-                <div className="col-6">
+                <div className="col-md-6 pt-5 pt-md-0">
                     <MostrarTarea 
                     modoEdicion={modoEdicion} 
                     setModoEdicion={setModoEdicion}
