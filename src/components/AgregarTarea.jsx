@@ -3,7 +3,6 @@ import { post, put } from '../actions/ToDoAction';
 
 export const AgregarTarea = (props) => {
 
-
     const handleAgregarTarea = e => {
         e.preventDefault()
         if (!props.tarea.trim()) {
@@ -12,16 +11,22 @@ export const AgregarTarea = (props) => {
         }
         props.setTarea('')
         props.setError(null)
+
+        //disparo el action post enviandole el nombre de la tarea
         props.dispatch(post(props.tarea))
     }
 
     const handleEditarTarea = e => {
         e.preventDefault()
+
+        //validador de formulario
         if (!props.tarea.trim()) {
             console.log('Campo vacio')
             props.setError('El campo no puede estar vacío')
             return
         }
+
+        //disparo el action put enviandole el nombre de la tarea y el ID
         props.dispatch(put(props.id,props.tarea))
         props.setModoEdicion(false)
         props.setTarea('')

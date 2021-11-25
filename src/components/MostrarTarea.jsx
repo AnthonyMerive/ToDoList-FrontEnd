@@ -3,8 +3,9 @@ import { deletear } from '../actions/ToDoAction';
 
 export const MostrarTarea = (props) => {
 
-    
     const handleEliminarTarea = id => {
+        
+        //disparo el action delete enviandole el ID
         props.dispatch(deletear(id));
     }
 
