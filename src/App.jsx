@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import shortid from 'shortid'
-import { getAsincronico, post } from './actions/ToDoAction'
+import { deletear, getAsincronico, post, put } from './actions/ToDoAction'
 
 export default function App() {
 
     const task = useSelector(store => store.tareas.tareas)
     const [tarea, setTarea] = React.useState('')
-    const [tareas, setTareas] = React.useState([])
     const [modoEdicion, setModoEdicion] = React.useState(false)
     const [id, setId] = React.useState('')
     const [error, setError] = React.useState(null)
@@ -26,12 +24,10 @@ export default function App() {
         setTarea('')
         setError(null)
         dispatch(post(tarea))
-        dispatch(getAsincronico())
     }
 
     const handleEliminarTarea = id => {
-        const arrayFiltrado = tareas.filter(item => item.id !== id)
-        setTareas(arrayFiltrado)
+        dispatch(deletear(id));
     }
 
     const handleEdicion = item => {
@@ -47,15 +43,12 @@ export default function App() {
             setError('El campo no puede estar vacío')
             return
         }
-
-        const arrayEditado = tareas.map(item => item.id === id ? { id, tarea } : item)
-        setTareas(arrayEditado)
+        dispatch(put(id,tarea))
         setModoEdicion(false)
         setTarea('')
         setId('')
         setError(null)
     }
-
 
     return (
 
@@ -103,7 +96,7 @@ export default function App() {
                     <h4 className="text-center">{modoEdicion ? 'Editando lista...' : 'Por Hacer'}</h4>
                     <ul className="list-group">
                         {
-                            task === undefined ? (
+                            task === undefined || task.length === 0? (
                                 <li className="list-group-item text-center">- Sin Tareas -</li>
                             ) : (
                                 task.map(item => (
