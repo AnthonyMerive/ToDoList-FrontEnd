@@ -10,11 +10,11 @@ https://github.com/AnthonyMerive/ToDoList-FrontEnd
 
 https://github.com/AnthonyMerive/-ToDoList-BackEnd
 
-##Descripcion:
+## Descripcion:
 
 Se realizo el proyecto en base a los siguientes requerimientos:
 
-###Perspectiva Front-end
+### Perspectiva Front-end
 
 Se tiene un archivo con toda la lógica, se presentan algunas malas prácticas en la codificación del mismo. Se debe refactorizar en donde se separe los componentes en archivos y se representen una mejor estructura.
 
@@ -22,12 +22,12 @@ Aplicar las mejores prácticas y buscar el mejor diseño para presentar los dato
 
 
 
-###Perspectiva Back-end
+### Perspectiva Back-end
 
 Dentro del back-end no se tiene una base de datos basada en servidor. Se debe aplicar un buen diseño de modelo entidad relación y aplicar una base de datos como servidor, ejemplo MySQL. Representar un objeto de trasporte de datos (DTO) en vez de usar la misma entidad para responder.
 
 
-###Issues - Criterios de Evaluación
+### Issues - Criterios de Evaluación
 
 - Resolver el diseño gráfico
 - Separar bien los elementos gráficos como componentes, store, reducer y providers.
