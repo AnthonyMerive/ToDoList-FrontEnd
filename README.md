@@ -1,3 +1,5 @@
+![Alt Text](https://res.cloudinary.com/df8qzqymf/image/upload/v1637819486/CRUD_peupwn.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
