@@ -27,7 +27,6 @@ export const deletear = (id) => {
     }
 }
 
-
 export const post = (tarea) => {
 
     return async (dispatch) => {
@@ -50,7 +49,7 @@ export const post = (tarea) => {
 }
 
 export const put = (id, tarea) => {
-    
+
     return async (dispatch) => {
         fetch(HOST_API + "/todo", {
             method: "PUT",
