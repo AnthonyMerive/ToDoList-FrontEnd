@@ -20,34 +20,34 @@ export default function App() {
     return (
 
         <div className="container mt-5">
-            <hr />
-            <h1 className="text-center">To-Do List</h1>
-            <hr />
+            <div className="mb-5">
+                <h1 className="text-center">TAREAS</h1>
+                <hr />
+            </div>
             <div className="row">
 
-                <div className="col-md-6">
-                    <AgregarTarea 
-                    modoEdicion={modoEdicion} 
-                    setModoEdicion={setModoEdicion}
-                    tarea={tarea} 
-                    setTarea ={setTarea} 
-                    error={error}
-                    setError = {setError}
-                    id = {id}
-                    setId = {setId}
-                    dispatch = {dispatch}
+                <div className="col-md-6 border border-success p-5">
+                    <AgregarTarea
+                        modoEdicion={modoEdicion}
+                        setModoEdicion={setModoEdicion}
+                        tarea={tarea}
+                        setTarea={setTarea}
+                        error={error}
+                        setError={setError}
+                        id={id}
+                        setId={setId}
+                        dispatch={dispatch}
                     />
                 </div>
-
                 <div className="col-md-6 pt-5 pt-md-0">
-                    <MostrarTarea 
-                    modoEdicion={modoEdicion} 
-                    setModoEdicion={setModoEdicion}
-                    setTarea ={setTarea} 
-                    setId = {setId}
-                    task = {task}
-                    dispatch = {dispatch}
-                    />                   
+                    <MostrarTarea
+                        modoEdicion={modoEdicion}
+                        setModoEdicion={setModoEdicion}
+                        setTarea={setTarea}
+                        setId={setId}
+                        task={task}
+                        dispatch={dispatch}
+                    />
                 </div>
             </div>
         </div>

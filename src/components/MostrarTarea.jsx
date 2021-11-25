@@ -16,11 +16,11 @@ export const MostrarTarea = (props) => {
 
     return (
         <Fragment>
-            <h4 className="text-center">{props.modoEdicion ? 'Editando lista...' : 'Por Hacer'}</h4>
-            <ul className="list-group">
+            <h4 className="text-center">{props.modoEdicion ? 'Editando lista...' : 'Por Hacer...'}</h4>
+            <ul className="list-group list-group-flush">
                 {
                     props.task === undefined || (props.task).length === 0 ? (
-                        <li className="list-group-item text-center">- Sin Tareas -</li>
+                        <h6 className="text-center mt-3">- Sin Tareas -</h6>
                     ) : (
                         (props.task).map(item => (
                             <li className="list-group-item" key={item.id}>
